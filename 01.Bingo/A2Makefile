@@ -1,0 +1,14 @@
+
+# Alden Shin-Culhane
+
+all: A2
+
+list.o: list.c list.h
+
+A2.o: A2.c list.o
+
+A2: A2.o
+	gcc -o A2 A2.o list.o
+
+clean:
+	rm -f A2 A2.o list.o
