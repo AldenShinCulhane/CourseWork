@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page for CPS530 Lab 4 Using Javascript, HTML and CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="lab04styles.css">
+    <script>
+        // PROBLEM 1
+        // Function to validate form items
+        function validateForm() {
+            // Get user values from the form
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+
+            // Regular expressions and checks to validate form items
+            var nameRegex = /^[a-zA-Z\s]+$/;
+            var phoneRegex = /^\((\d{3})\)\s?(\d{3})-(\d{4})$/;
+            if (!name.match(nameRegex)) {
+                alert("Invalid name. Only letters are allowed.");
+                return false;
+            }
+
+            if (!phone.match(phoneRegex)) {
+                alert("Invalid phone number format. Sample: (123) 456-7890");
+                return false;
+            }
+
+            // Transforming phone number into area code-exchange-number format
+            var phoneTransformed = phone.replace(phoneRegex, "$1-$2-$3");
+
+            // Displaying values
+            displayInfo(name, address, phoneTransformed);
+        }
+
+        // Function to display form items
+        function displayInfo(name, address, phone) {
+            var output = document.getElementById("output");
+            output.className = "output-container";
+            output.innerHTML = "<div class='output-item'>Name: " + name + "</div>";
+            output.innerHTML += "<div class='output-item'>Address: " + address + "</div>";
+            output.innerHTML += "<div class='output-item'>Phone: " + phone + "</div>";
+        }
+
+        // PROBLEM 2
+        // Counting the total number of characters
+        function countChars(elem) {
+            var charCount = elem.value.length;
+            document.getElementById('charCount').innerHTML = "Character Count: " + charCount;
+        }
+
+        // Counting the letters
+        function countLetters(elem) {
+            var letterCount = (elem.value.match(/[a-zA-Z]/g) || []).length;
+            document.getElementById('letterCount').innerHTML = "Letter Count: " + letterCount;
+        }
+
+        // PROBLEM 3
+        function displayBookmarks() {
+            // Creating bookmarks list
+            var bookmarks = [
+                { url: "http://avidcocoa.com", secure: false },
+                { url: "https://www.twitch.tv", secure: true },
+                { url: "https://www.youtube.com", secure: true }
+            ];
+
+            // Displaying bookmark URLs with coloured icons indicating security
+            var output = document.getElementById('bookmarks');
+            bookmarks.forEach(function (bookmark, index) {
+                var icon = bookmark.secure ?
+                    '<img src="securePadlock.png" alt="Secure" style="width:20px;">' :
+                    '<img src="notSecurePadlock.png" alt="Unsecured" style="width:30px;">';
+                output.innerHTML += (index + 1) + ". " + icon + ' <a href="' + bookmark.url + '" target="_blank">' + bookmark.url + '</a><br>';
+            });
+        }
+    </script>
+</head>
+
+<body onload="displayBookmarks()">
+    <!-- PROBLEM 1 -->
+    <h2 id="problem1-title">Problem 1 - User Form Validation</h2>
+    <form id="form1">
+        Name: <input type="text" id="name" name="name"><br>
+        Address: <input type="text" id="address" name="address"><br>
+        Phone: <input type="text" id="phone" name="phone"> <span class="format-text">Sample: (123) 456-7890</span><br>
+        <input type="button" value="Validate" onclick="validateForm()">
+    </form>
+    <div id="output"></div>
+
+    <!-- PROBLEM 2 -->
+    <h2 id="problem2-title">Problem 2 - Character and Letter Counting</h2>
+    <textarea oninput="countChars(this); countLetters(this);"></textarea>
+    <div id="charCount" class="large"></div>
+    <div id="letterCount" class="large"></div>
+
+    <!-- PROBLEM 3 -->
+    <h2 id="problem3-title">Problem 3 - Secure and Not Secure Bookmarks</h2>
+    <div id="bookmarks" class="large"></div>
+</body>
+</html>

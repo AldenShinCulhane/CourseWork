@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Mr. Potato Head Game for CPS530 Lab 4 Using JQuery</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <link rel="stylesheet" href="lab05styles.css">
+</head>
+
+<body>
+    <div class="container main-container">
+        <div id="potatoHead">
+            <img id="body" class="part" src="body.png" alt="Body">
+            <img id="eyes" class="part" src="eyes.png" alt="Eyes" style="display:none;">
+            <img id="nose" class="part" src="nose.png" alt="Nose" style="display:none;">
+            <img id="mouth" class="part" src="mouth.png" alt="Mouth" style="display:none;">
+            <img id="hat" class="part" src="hat.png" alt="Hat" style="display:none;">
+        </div>
+        <button id="toggleBody" class="btn btn-info">Toggle Body</button>
+        <button id="toggleEyes" class="btn btn-info">Toggle Eyes</button>
+        <button id="toggleNose" class="btn btn-info">Toggle Nose</button>
+        <button id="toggleMouth" class="btn btn-info">Toggle Mouth</button>
+        <button id="toggleHat" class="btn btn-info">Toggle Hat</button>
+        <button id="saveImage" class="btn btn-info">Save as Image</button>
+
+        <div id="imageContainer">
+            <img id="completedPotatoHead" src="completedPotatoHead.png" alt="Completed Mr. Potato Head" style="display:block; margin-top: 20px;">
+        </div>
+    </div>
+
+    <div id="fullscreenOverlay">
+        <img src="completedPotatoHead.png" alt="Completed Mr. Potato Head">
+        <span class="close-icon">&#x2715;</span>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Toggle Mr. Potato Head body parts
+            $("#toggleBody").click(function () { $("#body").toggle(); });
+            $("#toggleEyes").click(function () { $("#eyes").toggle(); });
+            $("#toggleNose").click(function () { $("#nose").toggle(); });
+            $("#toggleMouth").click(function () { $("#mouth").toggle(); });
+            $("#toggleHat").click(function () { $("#hat").toggle(); });
+
+            // Save Mr. Potato Head state as png image
+            $("#saveImage").click(function () {
+                html2canvas(document.querySelector("#potatoHead")).then(canvas => {
+                    let image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                    let link = document.createElement('a');
+                    link.download = 'mr_potato_head.png';
+                    link.href = image;
+                    link.click();
+                });
+            });
+
+            // Fullscreen activated when hovered over completed image
+            $("#completedPotatoHead").hover(
+                function () {
+                    $("#fullscreenOverlay").show();
+                    $(".close-icon").show();
+                },
+                function () { }
+            );
+
+            $(".close-icon").click(function () {
+                $("#fullscreenOverlay").hide();
+                $(this).hide();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+body {
+    font-family: 'Times New Roman', serif;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+header, footer {
+    background-color: #223344;
+    color: white;
+}
+
+.container {
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}

@@ -1,0 +1,50 @@
+body {
+    background-color: #6A6A6A;
+    color: white;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.shape-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 250px;
+}
+
+.flag-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.flag-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+svg {
+    margin-bottom: -20px;
+}
+
+.flag-svg svg, .flag-img img {
+    display: block;
+    margin: auto;
+}
+
+polygon, rect, circle {
+    stroke: black;
+    stroke-width: 2;
+}
+
+.flag-space {
+    margin-bottom: 20px;
+}
+
+text {
+    fill: white;
+}

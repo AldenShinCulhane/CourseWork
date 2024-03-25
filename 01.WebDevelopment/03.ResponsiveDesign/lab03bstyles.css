@@ -1,0 +1,25 @@
+body {
+    font-family: 'Times New Roman', serif;
+}
+
+h1, h2 {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+header, footer {
+    background-color: #26496b;
+    color: white;
+}
+
+.image-container {
+    height: 300px;
+    overflow: hidden;
+}
+
+.image-container img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
