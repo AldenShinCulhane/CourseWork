@@ -5,7 +5,11 @@ There are 5 web pages contained here, all of which interact with a private table
 (all links require TMU's Computer Science VPN to access)
 
 https://webdev.cs.ryerson.ca/~ashincul/lab09a.php
+
 https://webdev.cs.ryerson.ca/~ashincul/lab09b.php
+
 https://webdev.cs.ryerson.ca/~ashincul/lab09c.php
+
 https://webdev.cs.ryerson.ca/~ashincul/lab09d.php
+
 https://webdev.cs.ryerson.ca/~ashincul/lab09e.php
