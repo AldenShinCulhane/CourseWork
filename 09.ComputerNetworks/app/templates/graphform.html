@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+  <h1>Input Edge</h1>
+  <form method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <ul>
+      <li>
+        {{ form.vert1.label }} <br>
+        {{ form.vert1(size=24) }}
+      </li>
+      <li>
+        {{ form.vert2.label }} <br>
+        {{ form.vert2(size=24) }}
+      </li>
+      <li>
+        {{ form.weight.label }} <br>
+        {{ form.weight(size=24) }}
+      </li>
+      <li>
+        <p>{{ form.submit() }}</p>
+      </li>
+    </ul>
+  </form>
+{% endblock %}

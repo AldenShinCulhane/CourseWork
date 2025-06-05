@@ -1,0 +1,6 @@
+COLUMN ID FORMAT A8
+SELECT ID
+FROM Employee
+MINUS
+SELECT Employee_ID
+FROM Full_Time_Employee;

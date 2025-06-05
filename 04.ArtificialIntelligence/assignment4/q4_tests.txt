@@ -1,0 +1,75 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Ivan Chan
+%%%%% NAME: Hanna Frances Bobis
+%%%%% NAME: Alden Shin-Culhane
+%
+% Add your test queries below, along with a description of the test you are performing.
+% The format can look as follows
+% 
+% %%%%% QUERY 2
+% %% Description: Checks that we can get any jazz album. More should enumerate all of them
+% what([any, jazz, album], A).
+%
+
+%%%%%% QUERY 1
+%% Description: finds an album released before a specific year (2017)
+
+what([an, album, released_in, 2017], A).
+
+%%%%%% QUERY 2
+%% Description: finds all songs longer than 6 minutes released by lena raine in 2018
+
+what([a, long, lena_raine, song, released_in, 2018], S).
+
+%%%%%% QUERY 3
+%% Description: finds the third song in the persona_5 album
+
+what([the, third, song, on, persona_5], S).
+
+%%%%%% QUERY 4
+%% Description: finds all metal songs by darren korb
+
+what([a, metal, track, by, darren_korb], S).
+
+%%%%%% QUERY 5
+%% Description: finds the first song in every album
+
+what([the, first, song, in, an, album], S).
+
+%%%%%% QUERY 6
+%% Description: finds the length (in seconds) of the album out_of_control
+
+what([the, length, of, out_of_control], L).
+
+%%%%%% QUERY 7
+%% Description: finds a new album (released in the current year) by the artist honkai_star
+
+what([a, new, album, by, honkai_star_rail], A).
+
+%%%%%% QUERY 8
+%% Description: finds the second song on the album hades
+
+what([the, second, track, on, hades], S).
+
+%%%%%% QUERY 9
+%% Description: finds short songs (less than 3 minutes long) by the artist shoji_meguro
+
+what([a, short, track, by, shoji_meguro], S).
+
+%%%%%% QUERY 10
+%% Description: finds albums released before the release of celeste
+
+what([any, album, released_before, celeste], A).
+
+%%%%%% QUERY 11
+%% Description: finds all songs made by darren_korb that are also the second song on their respective tracklists
+
+what([the, second, darren_korb, song], S).
+
+%%%%%% QUERY 12
+%% Description: finds the twentieth song in an album that has a release year of 2023
+
+what([the, twentytieth, song, in, an, album, with, a, release_year, of, 2023], S).

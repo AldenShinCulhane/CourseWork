@@ -1,0 +1,55 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Ivan Chan
+%%%%% NAME: Hanna Frances Bobis
+%%%%% NAME: Alden Shin-Culhane
+%
+% Add the required rules in the corresponding sections. 
+% If you put the rules in the wrong sections, you will lose marks.
+%
+% You may add additional comments as you choose but DO NOT MODIFY the comment lines below
+%
+
+%%%%% SECTION: puzzleGenerateAndTestSession
+%%%%% Put your session for generate and test below
+
+% Start: 28.0
+
+% End: 48.203
+
+% Time: 20.203
+
+% Solution:
+
+% L is 1
+% E is 8
+% T is 3
+% A is 6
+% P is 4
+% I is 7
+% S is 2
+% O is 0
+% V is 9
+
+%%%%% SECTION: puzzleInterleavingSession
+%%%%% Put your session for generate and test below
+
+% Start: 33.046
+
+% End: 33.046
+
+% Time: 0.0
+
+% Solution:
+
+% L is 1
+% E is 8
+% T is 3
+% A is 6
+% P is 4
+% I is 7
+% S is 2
+% O is 0
+% V is 9

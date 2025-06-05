@@ -1,0 +1,8 @@
+SELECT HR_MANAGER_ID AS ManagerID,
+       COUNT(ID) AS "Number Of Employees",
+       SUM(HOURS) AS "Total Overtime Hours",
+       AVG(RATE_MULTIPLIER) AS "Average Rate Multiplier"
+FROM OVERTIME
+GROUP BY HR_MANAGER_ID
+HAVING COUNT(ID) >= 5
+ORDER BY HR_MANAGER_ID;

@@ -1,0 +1,239 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Ivan Chan
+%%%%% NAME: Hanna Frances Bobis
+%%%%% NAME: Alden Shin-Culhane
+%
+% Add your report below
+% 
+%%%%% SUMMARY
+%%%%% In 1-2 paragraphs, describe what part of the assignment you completed and discuss your overall findings.
+%%%%% Be sure to describe the computer you ran your tests on
+
+For The Philosophers Problem, our group implemented a Prolog solution which once again involved precondition axioms,
+successor-state axioms, and declarative heuristics. This time however, they are tailored for a scenario where philosophers
+sit around a table, each needing two different forks to eat spaghetti. The precondition axioms were made to portray the
+necessary conditions for actions, like picking up or putting down forks and attempting to eat. We had to make sure these
+axioms adhered to the philosophers’ proximity to the forks and their current state, thinking, waiting, or eating. Our
+successor-state axioms map out the transition of states following each action. These axioms track the availability of forks,
+the actions of individual philosophers, and their transition between thinking, waiting, eating, and being happy. This logical
+mapping is to maintain the consistency and progression of each philosopher's state. Our declarative heuristics were critical
+in optimizing the planning process. These heuristics identified and eliminated redundant actions, streamlining the decision-making
+process. For instance, actions such as picking up a fork immediately after putting it down were deemed useless and pruned from the
+planning. This not only reduced computational complexity, but also accelerated the problem-solving.
+
+When testing our program, we observed a contrast in performance between the regular and heuristic modes. While the regular
+mode took 1.42 seconds to find a solution in goal state 4, the heuristic mode reduced this time to 0.42 seconds. This reduction
+in computational time shows us the effectiveness of our heuristics. Our testing was conducted with an AMD Ryzen 5 5600X 6-Core
+CPU running at 3.70GHz and 16GB of RAM. Our findings affirm our group's understanding of automated planning principles in AI and
+our ability to translate real-world problems into logical, AI-processable rules and conditions. This task not only highlights the
+potential of AI in everyday problem-solving but also serves as a testament to the strength of well-designed AI systems in reducing
+computational demands and optimizing tasks.
+
+
+%%%%% EXTRA GOALS FOR PART B
+%%%%% Include the extra goals you used for Part B here
+%%%%% Include a brief English description of each
+
+% check if p1 can reach an eating state
+goal_state(6, S) :- eating(p1, S).
+
+% check if p1 can reach a thinking state
+goal_state(7, S) :- thinking(p1, S).
+
+% check if p1 + p2 can reach a happy state and p3 in a waiting state. This helped us debug for goal state 5.
+goal_state(8, S) :- happy(p1, S), happy(p2, S), waiting(p3, S).
+
+
+%%%%% INTERACTION IN REGULAR MODE
+%%%%% Include your interaction below when testing the planner in regular mode (ie. without declarative heuristics)
+
+% -- goal state 1 --
+?- solve_problem(regular, 1, 8, Plan).
+Plan = [pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [pickUp(p1, f3)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [pickUp(p2, f2), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 2 --
+?- solve_problem(regular, 2, 8, Plan).
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p1, f1), pickUp(p1, f3)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 3 --
+?- solve_problem(regular, 3, 8, Plan).
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [putDown(p1, f1), pickUp(p2, f2), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 4 --
+?- solve_problem(regular, 4, 8, Plan).
+Plan = [putDown(p2, f1), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.42s cpu, solution 1, maybe more)
+Plan = [putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.42s cpu, solution 2, maybe more)
+Plan = [putDown(p2, f1), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.44s cpu, solution 3, maybe more)
+Plan = [putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.44s cpu, solution 4, maybe more)
+Plan = [putDown(p2, f1), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.44s cpu, solution 5, maybe more)
+
+% -- goal state 6 --
+?- solve_problem(regular, 6, 8, Plan).
+Plan = [tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [tryToEat(p1), pickUp(p1, f1), pickUp(p1, f3)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [tryToEat(p1), pickUp(p1, f1), pickUp(p1, f3)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 7 --
+?- solve_problem(regular, 7, 8, Plan).
+Plan = []
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [putDown(p1, f1), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [putDown(p1, f3), pickUp(p1, f3)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [putDown(p1, f1), pickUp(p2, f2), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [putDown(p1, f1), pickUp(p3, f2), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+
+
+%%%%% INTERACTION IN HEURISTIC MODE
+%%%%% Include your interaction below when testing the planner in heuristic mode (ie. when using declarative heuristics for pruning)
+
+% -- goal state 1 --
+?- solve_problem(heuristic, 1, 8, Plan).
+Plan = [pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [pickUp(p1, f3)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [pickUp(p2, f2), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 2 --
+?- solve_problem(heuristic, 2, 8, Plan).
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.02s cpu, solution 2, maybe more)
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.02s cpu, solution 3, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.02s cpu, solution 4, maybe more)
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p1, f1), pickUp(p1, f3)]
+Yes (0.02s cpu, solution 5, maybe more)
+
+% -- goal state 3 --
+?- solve_problem(heuristic, 3, 8, Plan).
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [putDown(p1, f3), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [putDown(p1, f1), pickUp(p2, f2), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 4 --
+?- solve_problem(heuristic, 4, 8, Plan).
+Plan = [putDown(p2, f1), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.42s cpu, solution 1, maybe more)
+Plan = [putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.42s cpu, solution 2, maybe more)
+Plan = [putDown(p2, f1), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.42s cpu, solution 3, maybe more)
+Plan = [putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.42s cpu, solution 4, maybe more)
+Plan = [putDown(p2, f1), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.44s cpu, solution 5, maybe more)
+
+
+% -- goal state 5 --
+?- solve_problem(heuristic, 5, 13, Plan).
+Plan = [putDown(p3, f2), tryToEat(p3), pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p3, f3), putDown(p1, f3), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (331.89s cpu, solution 1, maybe more)
+Plan = [putDown(p3, f3), tryToEat(p3), pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p3, f3), putDown(p1, f3), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (331.89s cpu, solution 2, maybe more)
+Plan = [putDown(p3, f2), tryToEat(p3), pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p3, f3), putDown(p1, f3), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (331.89s cpu, solution 3, maybe more)
+Plan = [putDown(p3, f3), tryToEat(p3), pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p3, f3), putDown(p1, f3), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (331.89s cpu, solution 4, maybe more)
+Plan = [putDown(p3, f2), tryToEat(p3), pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p3, f3), putDown(p1, f3), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (331.89s cpu, solution 5, maybe more)
+
+% -- goal state 6 --
+?- solve_problem(heuristic, 6, 8, Plan).
+Plan = [tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [tryToEat(p1), pickUp(p1, f1), pickUp(p1, f3)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [tryToEat(p1), pickUp(p1, f1), pickUp(p1, f3)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 7 --
+?- solve_problem(heuristic, 7, 8, Plan).
+Plan = []
+Yes (0.00s cpu, solution 1, maybe more)
+Plan = [putDown(p1, f1), pickUp(p2, f2), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 2, maybe more)
+Plan = [putDown(p1, f1), pickUp(p3, f2), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 3, maybe more)
+Plan = [putDown(p1, f1), pickUp(p3, f3), pickUp(p1, f1)]
+Yes (0.00s cpu, solution 4, maybe more)
+Plan = [putDown(p1, f3), pickUp(p2, f1), pickUp(p1, f3)]
+Yes (0.00s cpu, solution 5, maybe more)
+
+% -- goal state 8 --
+?- solve_problem(heuristic, 8, 9, Plan).
+Plan = [pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.73s cpu, solution 1, maybe more)
+Plan = [pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.73s cpu, solution 2, maybe more)
+Plan = [pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.73s cpu, solution 3, maybe more)
+Plan = [pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.73s cpu, solution 4, maybe more)
+Plan = [pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), pickUp(p2, f2), tryToEat(p1), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (1.89s cpu, solution 5, maybe more)

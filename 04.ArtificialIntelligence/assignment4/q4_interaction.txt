@@ -1,0 +1,161 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Ivan Chan
+%%%%% NAME: Hanna Frances Bobis
+%%%%% NAME: Alden Shin-Culhane
+%
+% Add your interaction below.
+% 
+%%%%% INTERACTION
+
+% % Our 12 new phrases for our KB
+% ?- what([an, album, released_in, 2017], A).
+% A = hollowknight
+% Yes (0.00s cpu, solution 1, maybe more)
+% A = hollowknight
+% Yes (0.00s cpu, solution 2, maybe more)
+% A = persona_5
+% Yes (0.00s cpu, solution 3, maybe more)
+% A = persona_5
+% Yes (0.00s cpu, solution 4, maybe more)
+% A = pyre
+% Yes (0.00s cpu, solution 5, maybe more)
+% A = pyre
+% Yes (0.00s cpu, solution 6, maybe more)
+% No (0.00s cpu)
+
+% ?- what([a, long, lena_raine, song, released_in, 2018], S).
+% S = resurrections
+% Yes (0.00s cpu, solution 1, maybe more)
+% No (0.00s cpu)
+
+% ?- what([the, third, song, on, persona_5], S).
+% S = a_woman
+% Yes (0.00s cpu, solution 1, maybe more)
+% No (0.00s cpu)
+
+% ?- what([a, metal, track, by, darren_korb], S).
+% S = no_escape
+% Yes (0.00s cpu, solution 1, maybe more)
+% S = lament_of_orpheus
+% Yes (0.00s cpu, solution 2, maybe more)
+% S = the_unseen_ones
+% Yes (0.00s cpu, solution 3, maybe more)
+% No (0.00s cpu)
+
+% ?- what([the, first, song, in, an, album], S).
+% S = star_rail
+% Yes (0.00s cpu, solution 1, maybe more)
+% S = embers
+% Yes (0.00s cpu, solution 2, maybe more)
+% S = no_escape
+% Yes (0.00s cpu, solution 3, maybe more)
+% S = resurrections
+% Yes (0.00s cpu, solution 4, maybe more)
+% S = dirtmouth
+% Yes (0.00s cpu, solution 5, maybe more)
+% S = on_the_horizon
+% Yes (0.00s cpu, solution 6, maybe more)
+% S = life_will_change
+% Yes (0.00s cpu, solution 7, maybe more)
+% S = blues_in_the_velvet_room
+% Yes (0.00s cpu, solution 8, maybe more)
+% S = loonboon
+% Yes (0.00s cpu, solution 9, maybe more)
+% S = mourning_song
+% Yes (0.00s cpu, solution 10, maybe more)
+% S = in_bloom
+% Yes (0.00s cpu, solution 11, maybe more)
+% No (0.00s cpu)
+
+% ?- what([the, length, of, out_of_control], L).
+% L = 852
+% Yes (0.00s cpu, solution 1, maybe more)
+% No (0.00s cpu)
+
+% ?- what([a, new, album, by, honkai_star_rail], A).
+% A = out_of_control
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+% A = of_snow_and_ember
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+% No (0.00s cpu)
+
+% ?- what([the, second, track, on, hades], S).
+% S = lament_of_orpheus
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+% No (0.00s cpu)
+
+% ?- what([a, short, track, by, shoji_meguro], S).
+% S = a_woman
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+% S = burn_my_dread
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+% No (0.00s cpu)
+
+% ?- what([any, album, released_before, celeste], A).
+% A = hollowknight
+% Yes (0.00s cpu, solution 1, maybe more) ? ;
+% A = black_flag
+% Yes (0.00s cpu, solution 2, maybe more) ? ;
+% A = persona_5
+% Yes (0.00s cpu, solution 3, maybe more) ? ;
+% A = persona_3
+% Yes (0.00s cpu, solution 4, maybe more) ? ;
+% A = plants_vs_zombies
+% Yes (0.00s cpu, solution 5, maybe more) ? ;
+% A = pyre
+% Yes (0.00s cpu, solution 6, maybe more) ? ;
+% A = nevermind
+% Yes (0.00s cpu, solution 7, maybe more) ? ;
+% No (0.00s cpu)
+
+% ?- what([the, second, darren_korb, song], S).
+% S = lament_of_orpheus
+% Yes (0.00s cpu, solution 1, maybe more)
+% S = thrash_pack
+% Yes (0.00s cpu, solution 2, maybe more)
+% No (0.00s cpu)
+
+% ?- what([the, twentytieth, song, in, an, album, with, a, release_year, of, 2023], S).
+% S = wildfire
+% Yes (0.02s cpu, solution 1, maybe more)
+% S = wildfire
+% Yes (0.03s cpu, solution 2, maybe more)
+% No (0.03s cpu)
+
+
+% % Phrases from the beginning of Q3, our KB does not satisfy them directly
+% ?- what([a, rock, song, by, the_beatles], S).
+% No (0.01s cpu)
+
+% ?- what([the, genre, of, hey_jude], G).
+% No (0.00s cpu)
+
+% ?- what([a, new, album, by, a, pop, artist], A).
+% No (0.00s cpu)
+
+% ?- what([the, length, of, views], L).
+% No (0.00s cpu)
+
+% ?- what([the, first, song, on, views], S).
+% No (0.00s cpu)
+
+% ?- what([an, old, album, by, the_mountain_goats], A).
+% No (0.00s cpu)
+
+% ?- what([the, release_year, of, hey_jude], Y).
+% No (0.00s cpu)
+
+% ?- what([a, short, beyonce, song, released_in, 2012], S).
+% No (0.00s cpu)
+
+% ?- what([the, release_year, of, the, short, drake, album], Y).
+% No (0.00s cpu)
+
+% ?- what([a, record, released_in, 2005, with, a, long, song], A).
+% No (0.00s cpu)
+
+% ?- what([a, drake, album, released_before, views], S).
+% No (0.00s cpu)

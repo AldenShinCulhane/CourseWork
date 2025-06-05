@@ -1,0 +1,5 @@
+SELECT 'Average Employment Insurance is', AVG(EMPLOYMENT_INSURANCE)
+FROM TAXES
+UNION
+SELECT 'Average Canada Pension Plan is', AVG(CANADA_PENSION_PLAN)
+FROM TAXES;

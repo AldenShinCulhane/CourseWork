@@ -1,0 +1,85 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Ivan Chan
+%%%%% NAME: Hanna Frances Bobis
+%%%%% NAME: Alden Shin-Culhane
+%
+% Add your queries below.For example, if you want to add the query "pred(X, constant).", 
+% it should appear as follows:
+% 
+% %%%%% QUERY 2
+% % EXPLANATION: Checks if there is a block on blockA
+% on(X, blockA).
+%
+% where 2 is the number of the query. The EXPLANATION line should contain your explanation 
+% in English of what the query tests. Omit the "%" on the line with the query
+% Don't forget to end queries with a period.
+
+
+%%%%%% QUERY 1
+% EXPLANATION: Grabs the total cost of the products bought (not including tax and shipping)
+subtotal(Sub).
+
+%%%%%% QUERY 2
+% EXPLANATION: Grabs the total cost of the products bought with express shipping (includes tax)
+totalCost(express, Cost).
+
+%%%%%% QUERY 3
+% EXPLANATION: Checks the total cost with regular shipping
+totalCost(regular, Cost).
+
+%%%%%% QUERY 4
+% EXPLANATION: Checks the cost of base shipping
+calculateBaseShipping(ShippingCost).
+
+%%%%%% QUERY 5
+% EXPLANATION: Checks whether regular shipping is free
+calculateShipping(regular, ShippingCost).
+
+%%%%%% QUERY 6
+% EXPLANATION: Checks whether express shipping is free (1.5x the price of regular if not free)
+calculateShipping(express, ShippingCost).
+
+
+% If you want to add more queries, put them above and use the same formatting as given above.
+
+
+%%%
+%%%
+%%%
+%%%%% INTERACTION
+/*
+Query 1:
+?- subtotal(Sub).
+Sub = 560
+Yes (0.00s cpu)
+
+Query 2:
+?- totalCost(express, Cost).
+Cost = 727.72
+Yes (0.00s cpu)
+
+Query 3:
+?- totalCost(regular, Cost).
+Cost = 632.8
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+No (0.01s cpu)
+
+Query 4:
+?- calculateBaseShipping(ShippingCost).
+ShippingCost = 56
+Yes (0.00s cpu)
+
+Query 5:
+?- calculateShipping(regular, ShippingCost).
+ShippingCost = 0
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+No (0.00s cpu)
+
+Query 6:
+?- calculateShipping(express, ShippingCost).
+ShippingCost = 84.0
+Yes (0.00s cpu)
+*/

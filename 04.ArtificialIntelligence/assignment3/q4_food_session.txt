@@ -1,0 +1,70 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Ivan Chan
+%%%%% NAME: Hanna Frances Bobis
+%%%%% NAME: Alden Shin-Culhane
+%
+% Add the required rules in the corresponding sections. 
+% If you put the rules in the wrong sections, you will lose marks.
+%
+% You may add additional comments as you choose but DO NOT MODIFY the comment lines below
+%
+
+%%%%% SECTION: foodDescription
+%%%%% Put a brief description of your program below
+% This program is designed to solve a meal planning problem for John over a week. It infers the meal
+% and drink selections for each day from Monday to Friday based on a set of constraints. The solve
+% predicate takes the meals and drinks for each day as variables, applies the constraints to these
+% and finds a valid assignment for each variable that satisfies all the constraints. The solve_and_print
+% predicate calls solve and then prints out the resulting meal plan in a readable format.
+
+%%%%% SECTION: foodSession
+%%%%% Put your session for the network problem below
+
+% This is a program we have solved to get bonus marks for our previous assignments
+% Given a domain of meals and drinks, we can fit together a schedule to satisfy certain constraints
+
+%%%%% SECTION: foodSession
+%%%%% Put your session for the network problem below
+
+% ?- solve(M1, M2, D1, M3, M4, D2, M5, M6, D3, M7, M8, D4, M9, M10, D5).
+% M1 = sour_soup
+% M2 = chow_mein
+% D1 = milk
+% M3 = chow_mein
+% M4 = peking_duck
+% D2 = coffee
+% M5 = peking_duck
+% M6 = egg_roll
+% D3 = tea
+% M7 = fried_rice
+% M8 = chow_mein
+% D4 = water
+% M9 = egg_roll
+% M10 = egg_roll
+% D5 = juice
+
+% ?- Start is cputime, solve_and_print, End is cputime, Time is End - Start.
+% Start = 11.593
+% End = 11.593
+% Time = 0.0
+% Yes (0.00s cpu, solution 1, maybe more)
+
+% Solution:
+% Monday's first course meal is sour_soup
+% Monday's second course meal is chow_mein
+% Monday's drink is milk
+% Tuesday's first course meal is chow_mein
+% Tuesday's second course meal is peking_duck
+% Tuesday's drink is coffee
+% Wednesday's first course meal is peking_duck
+% Wednesday's second course meal is egg_roll
+% Wednesday's drink is tea
+% Thursday's first course meal is fried_rice
+% Thursday's second course meal is chow_mein
+% Thursday's drink is water
+% Friday's first course meal is egg_roll
+% Friday's second course meal is egg_roll
+% Friday's drink is juice

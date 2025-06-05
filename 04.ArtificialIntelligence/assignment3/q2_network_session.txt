@@ -1,0 +1,73 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Ivan Chan
+%%%%% NAME: Hanna Frances Bobis
+%%%%% NAME: Alden Shin-Culhane
+%
+% Add the required rules in the corresponding sections. 
+% If you put the rules in the wrong sections, you will lose marks.
+%
+% You may add additional comments as you choose but DO NOT MODIFY the comment lines below
+%
+
+%%%%% SECTION: networkSession
+%%%%% Put your session for the network problem below
+
+% --- SOLVE ---
+% ?- solve([Bananas, Firstbank, Netvue, Pricenet, Sysworld, Univmoose, Catarina, Lizzie, Mona, Anthony, Daniel, Jaime, Elby, Kim, Osborne, Tsuji, Wolverton, ...]).
+% Bananas = 6
+% Firstbank = 1
+% Netvue = 2
+% Pricenet = 5
+% Sysworld = 4
+% Univmoose = 3
+% Catarina = 4
+% Lizzie = 6
+% Mona = 1
+% Anthony = 5
+% Daniel = 3
+% Jaime = 2
+% Elby = 5
+% Kim = 6
+% Osborne = 1
+% Tsuji = 4
+% Wolverton = 2
+% Zickerman = 3
+% Yes (0.00s cpu, solution 1, maybe more)
+
+% --- SOLVE AND PRINT (+ cpu time) ---
+
+% ?- Start is cputime, solve_and_print, End is cputime, Time is End - Start.
+% Start = 0.671
+% End = 0.671
+% Time = 0.0
+% Yes (0.00s cpu, solution 1, maybe more)
+
+% --- Output ---:
+% ----- ADDRESSSES -----
+% bananas.com is 6
+% firstbank.com is 1
+% netvue.com is 2
+% pricenet.com is 5
+% sysworld.com is 4
+% univmoose.com is 3
+
+% ----- ADMIN WOMEN -----
+% catarina is 4
+% lizzie is 6
+% mona is 1
+
+% ----- ADMIN MEN -----
+% Anthony is 5
+% Daniel is 3
+% Jaime is 2
+
+% ----- ADMIN LAST NAMES -----
+% Elby is 5
+% Kim is 6
+% Osborne is 1
+% Tsuju is 4
+% Wolverton is 2
+% Zickerman is 3
